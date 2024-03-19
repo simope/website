@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'game',
     'environ'
 ]
 
@@ -118,6 +119,8 @@ STATIC_ROOT = '../vol/static'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'website/templates'),
     os.path.join(BASE_DIR, 'website/static'),
+    os.path.join(BASE_DIR, 'game/templates'),
+    os.path.join(BASE_DIR, 'game/static'),
 ]
 
 # Default primary key field type
