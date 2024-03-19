@@ -1,16 +1,12 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{% block title %}{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'css/homestyle.css' %}">
-</head>
-<body >
+{% extends "master.html" %}
 
-<h1> Ciao GRANDE </h1>
-
-{% block content %}
+{% block title %}
+My website
 {% endblock %}
 
-</body>
-</html>
+{% block content %}
+  <div align="center">
+    <h1>Welcome onboard!</h1>
+    <h3> I'm under development</h3>
+  </div>
+{% endblock %}

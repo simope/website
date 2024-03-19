@@ -1,12 +1,50 @@
-@font-face {
-    font-family: 'Ubuntu';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Ubuntu'), url(http://example.com/fonts/ubuntu.woff) format('woff');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+  margin:0;
+  font: 600 18px 'Montserrat', sans-serif;
+  letter-spacing: 0.64px;
+  color: #3D405B;
+  background-color: #f4f1de;
 }
 
-h1 {
-    font-family: Ubuntu, sans-serif;
-    font-size: 100px;
-    background-color: pink;
+hr {
+  width: 700px;
+}
+
+.topnav {
+  display: flex;
+  width: 700px;
+  margin: auto;
+  margin-top: 20px;
+  align-items: center;
+  background-color:#e07a5f;
+  color: #3D405B;
+  border-radius: 12px;
+  padding: 20px 15px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.topnav li{
+  list-style: none;
+  margin: 0 12px;
+}
+
+.topnav li a{
+  position: relative;
+  color: #333;
+  padding: 6px 0;
+  text-decoration: none;
+}
+
+.topnav a:link, .topnav a:visited {
+  text-decoration: none;
+  color: #333;
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.topnav a:hover, .topnav a:active {
+  /* text-decoration: underline; */
+  background-color: #fff;
+  transition: all 0.5s ease;
 }
