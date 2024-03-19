@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Ubuntu'), url(http://example.com/fonts/ubuntu.woff) format('woff');
+}
+
+h1 {
+    font-family: Ubuntu, sans-serif;
+    font-size: 100px;
+    background-color: pink;
+}

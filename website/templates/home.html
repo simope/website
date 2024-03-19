@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/homestyle.css' %}">
+</head>
+<body >
+
+<h1> Ciao GRANDE </h1>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
