@@ -18,7 +18,7 @@ SECRET_KEY = env.str('SECRET_KEY')
 DEBUG = env.bool('DEBUG', default=True)
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = 'https://simonepecora.com'
+CSRF_TRUSTED_ORIGINS = ['https://simonepecora.com']
 
 # Application definition
 
