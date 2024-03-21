@@ -125,14 +125,14 @@ function checkResult(hand, randomNum){
   return result;
 }
 
-function saveToDB(result){
-  $.ajax({
-    url: 'save-to-DB/',
-    type: 'POST',
-    data: {'result': result},
-  }).done(function(response){
-    console.log(response);
-  });
+function saveToDB(res){
+  // Send POST request with the result of the match
+  const resultData = {result: res};
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", 'save-to-DB/', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify(resultData));
 }
 
 function reload(){

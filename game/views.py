@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, FileResponse, JsonResponse
@@ -90,7 +91,8 @@ def play(request):
 @csrf_exempt
 def save_to_DB(request):
     if request.method == 'POST':
-        result = request.POST.get('result')
+        print(json.loads(request.body.decode()))
+        result = json.loads(request.body.decode())['result']
         model = rps_match(result=result)
         model.save()
         return JsonResponse({'success': True})
