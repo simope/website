@@ -9,6 +9,6 @@ admin.site.register(rps_match, rps_match_admin)
 
 
 class user_admin(admin.ModelAdmin):
-    list_display = ["ip", "latitude", "longitude", "created_at",]
+    list_display = ["ip", "latitude", "longitude", "points", "created_at",]
 
 admin.site.register(user, user_admin)

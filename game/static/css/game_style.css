@@ -5,63 +5,14 @@
   src: local('Ubuntu'), url(http://example.com/fonts/ubuntu.woff) format('woff');
 }
 
-body {
-  margin:0;
-  font: 600 18px 'Ubuntu', sans-serif;
-  letter-spacing: 0.64px;
-  color: #3D405B;
-  background-color: #f4f1de;
-}
-
-hr {
-  width: 700px;
-}
-
-.topnav {
-  display: flex;
-  width: 700px;
+#nameForm{
+  display: block;
   margin: auto;
-  margin-top: 20px;
-  align-items: center;
-  background-color:#e07a5f;
-  color: #3D405B;
-  border-radius: 12px;
-  padding: 20px 15px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 
-.topnav li{
-  list-style: none;
-  margin: 0 12px;
-}
-
-.topnav li a{
-  position: relative;
-  color: #333;
-  padding: 6px 0;
-  text-decoration: none;
-}
-
-.topnav a:link, .topnav a:visited {
-  text-decoration: none;
-  color: #333;
-  border-radius: 25px;
-  padding: 10px;
-}
-
-.topnav a:hover, .topnav a:active {
-  /* text-decoration: underline; */
-  background-color: #fff;
-  transition: all 0.5s ease;
-}
-
-h1 {
-  text-align: center;
-}
-
-.wrapper{
-  display: grid;
+#wrapper{
   margin: auto;
+  display: none;
   grid-template-columns: repeat(9, 1fr);
   grid-template-rows: repeat(6, 1fr);
   grid-column-gap: 0px;
@@ -73,13 +24,10 @@ h1 {
 .pagetitle{
   font-size: 20px;
   grid-area: 1 / 2 / 2 / 9;
+  text-align: center;
 }
 
-.input{
-  display: grid;
-  align-items: left;
-  justify-content: space-around;
-}
+
 
 .hand-selection-1{
   grid-area: 2 / 2 / 3 / 3;
@@ -148,37 +96,35 @@ h1 {
   font-size: 40px;
 }
 
-.bar-chart{
-  margin: auto;
+hr {
   width: 700px;
-  max-width: 900px;
-  min-width: 600px;
-  height: 400px;
 }
 
-#refresh{
-  position: relative;
-  font-family: 'Montserrat';
-  top: -430px;
-  left: 500px;
-  width: 100px;
-  height: 50px;
-  border-radius: 10px;
-}
-
-.total-played{
-  font-size: 40px;
-  margin: auto;
+form {
   text-align: center;
+  font-size: 40px;
 }
 
-.users-map{
-  font-size: 40px;
-  text-align: center;
-  margin: auto;
-  width: 700px;
-  max-width: 900px;
-  min-width: 600px;
-  height: 400px;
-  margin-bottom: 100px;
+input[type="text"] {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font: 600 18px 'Ubuntu', sans-serif;
+
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #e07a5f;
+  font: 600 18px 'Ubuntu', sans-serif;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #b46049;
 }

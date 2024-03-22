@@ -16,6 +16,42 @@ def play(request):
 
    # Load webpage
    template = loader.get_template('rockpaperscissors.html')
+   return render(request, 'rockpaperscissors.html')
+
+@csrf_exempt
+def save_to_DB(request):
+    if request.method == 'POST':
+      result = json.loads(request.body.decode())['result']
+
+      # Extract users IP already in the DB
+      ip_list = list(user.objects.values_list('ip', flat=True))
+
+      # Extract IP and locate user
+      #ip = request.META.get('HTTP_X_FORWARDED_FOR')
+      #ip = ip.split(', ')[0]
+      ip = "92.109.61.185"
+      
+      model = rps_match(result=result)
+      model.save()
+
+      if ip in ip_list:
+         current_user = user.objects.get(ip=ip)
+         current_user.points += 1
+         current_user.save()
+
+      else:
+         ipdata = (requests.get('https://ipwho.is/'+ip)).json()
+         new_user = user(ip=ip, latitude=ipdata["latitude"], longitude=ipdata["longitude"], points=0)
+         new_user.save()
+    return JsonResponse({'success': True})
+
+def stats(request):
+
+   ############################################
+   # Bar char creation
+
+   # Load webpage
+   template = loader.get_template('stats.html')
 
    # Extract match statistics
    data_match = (rps_match.objects
@@ -56,20 +92,7 @@ def play(request):
 
    chart = fig.to_html
 
-   # Extract users IP already in the DB
-   ip_list = list(user.objects.values_list('ip', flat=True))
-
-   # Extract IP and locate user
-   ip = request.META.get('HTTP_X_FORWARDED_FOR')
-   ip = "92.109.61.185"
-
-   ipdata = (requests.get('https://ipwho.is/'+ip)).json()
-
-   if not(ip in ip_list):
-      # Save into model and DB if not already there
-      userModel = user(ip=ip, latitude=ipdata["latitude"], longitude=ipdata["longitude"])
-      userModel.save()
-
+   
    # Reading users locations
    data_users = (user.objects.values('latitude', 'longitude'))
    
@@ -84,24 +107,12 @@ def play(request):
 
    m = m._repr_html_()
 
-   context = {'chart': chart, 'total': total, 'map': m}
-
-   return render(request, 'rockpaperscissors.html', context)
-
-@csrf_exempt
-def save_to_DB(request):
-    if request.method == 'POST':
-        print(json.loads(request.body.decode()))
-        result = json.loads(request.body.decode())['result']
-        model = rps_match(result=result)
-        model.save()
-        return JsonResponse({'success': True})
-  
-    return JsonResponse({'success': False})
+   ############################################
+   ############################################
+   # Ranking creation
+   rank_users = user.objects.order_by('points')[:10]
 
 
-def data(request):
-  form = rps_match.objects.values()
-  print(form[4]['result'])
-  template = loader.get_template('rockpaperscissors.html')
-  return JsonResponse({'success': True})
+   context = {'chart': chart, 'total': total, 'map': m, 'rank_users': rank_users}
+
+   return render(request, 'stats.html', context)

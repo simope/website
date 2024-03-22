@@ -13,10 +13,6 @@ body {
   background-color: #f4f1de;
 }
 
-hr {
-  width: 700px;
-}
-
 .topnav {
   display: flex;
   width: 700px;

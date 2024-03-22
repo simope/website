@@ -8,5 +8,7 @@ class rps_match(models.Model):
 class user(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     ip = models.CharField(max_length=100)
+    name = models.CharField(max_length=255, null=True)
     latitude = models.FloatField()
     longitude = models.FloatField()
+    points = models.BigIntegerField(null=True)

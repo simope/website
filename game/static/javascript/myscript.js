@@ -127,7 +127,7 @@ function checkResult(hand, randomNum){
 
 function saveToDB(res){
   // Send POST request with the result of the match
-  const resultData = {result: res};
+  const resultData = {result: res, name: input_name};
 
   var xhr = new XMLHttpRequest();
   xhr.open("POST", 'save-to-DB/', true);

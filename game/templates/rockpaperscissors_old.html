@@ -15,20 +15,7 @@ My website
 <link rel="stylesheet" href="{% static 'css/game_style.css' %}">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-
-<div id="nameForm">
-    <br>
-    <hr>
-    <div class="nameLabel">Enter your name to play:</div>
-    <br>
-    <input type="text" id="nameField" required>
-    <button id="submit-button">Submit</button>
-    <br>
-<hr>
-</div>
-
-
-<div id="wrapper">
+<div class="wrapper">
     <div class="pagetitle"><h1> Rock, paper, scissors </h1></div>
 
         <div class="hand-selection-1">
@@ -56,24 +43,29 @@ My website
     </div>
 </div>
 
-<script>
-    const form = document.getElementById("nameForm");
-    const wrapper = document.getElementById("wrapper");
-    const submitButton = document.getElementById("submit-button")
-    const nameField = document.getElementById("nameField")
-    const inputValue = nameField.value.trim();
+<br>
+<hr>
+<br>
 
-    submitButton.onclick = function(event){
-        event.preventDefault();
-        console.log("hai clickato")
-        if (inputValue !== '') {
-            form.style.display = "none";
-            wrapper.style.display = "grid";
-        } else {
-            alert('You have to insert a name!');
-        }
-  }
+<div class="total-played">
+    RPS has been played {{total}} times.
+</div>
 
+<br>
+<hr>
+<br>
 
-</script>
+<div class="bar-chart">
+    {{chart|safe}}
+    <button id="refresh" onclick="reload()">Refresh statistics</button>
+</div>
+
+<br>
+<hr>
+<br>
+
+<div class="users-map">
+    Users positions
+    {{map|safe}}
+</div>
 {% endblock %}

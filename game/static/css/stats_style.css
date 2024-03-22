@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu'), url(http://example.com/fonts/ubuntu.woff) format('woff');
+}
+
+hr {
+  width: 700px;
+}
+
+.total-played {
+  max-width: 900px;
+  min-width: 600px;
+  font-size: 40px;
+  text-align: center;
+}
+
+.bar-chart{
+  margin: auto;
+  width: 700px;
+  max-width: 900px;
+  min-width: 600px;
+  height: 400px;
+}
+
+.users-map{
+  font-size: 40px;
+  text-align: center;
+  margin: auto;
+  width: 700px;
+  max-width: 900px;
+  min-width: 600px;
+  height: 400px;
+  margin-bottom: 100px;
+}

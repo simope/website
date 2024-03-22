@@ -1,0 +1,66 @@
+{% extends "master.html" %}
+{% load static %}
+
+{% block title %}
+My website
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/stats_style.css' %}">
+
+<div align="center">
+    <br>
+    <hr>
+    <br>
+
+    <div class="total-played">
+    RPS has been played {{total}} times.
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <div class="bar-chart">
+        {{chart|safe}}
+    </div>
+
+    <br>
+    <hr>
+    <br>
+    <!---
+    <div class="ranking">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in rank_users %}
+                <tr>
+                    <td>{{ user.pk }}</td>
+                    <td>{{ user.points }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    -->
+    <br>
+    <hr>
+    <br>
+
+    <div class="users-map">
+        Visitors positions
+        <br>
+        <br>
+        {{map|safe}}
+    </div>        
+</div>
+
+
+
+{% endblock %}
