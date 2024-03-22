@@ -45,7 +45,6 @@ def createChart():
         data_match,
         x='result',
         y='count',
-        title='RPS global statistics',
         color='result',
         labels={
             "result": '',

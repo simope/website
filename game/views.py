@@ -14,7 +14,7 @@ def stats(request):
    chart, total = createChart()
    map = createMap()
    context = {'chart': chart, 'total': total, 'map': map}
-   return render(request, 'rockpaperscissors.html', context)
+   return render(request, 'stats.html', context)
 
 @csrf_exempt
 def save_to_DB(request):
