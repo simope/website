@@ -1,14 +1,14 @@
 from django.contrib import admin
-from .models import rps_match, user
+from .models import Player, Game
 
 # Register your models here.
-class rps_match_admin(admin.ModelAdmin):
-    list_display = ["result", "created_at",]
+class Game_admin(admin.ModelAdmin):
+    list_display = ["result", "played_at", "player"]
 
-admin.site.register(rps_match, rps_match_admin)
+admin.site.register(Game, Game_admin)
 
 
-class user_admin(admin.ModelAdmin):
-    list_display = ["ip", "latitude", "longitude", "created_at",]
+class Player_admin(admin.ModelAdmin):
+    list_display = ["nickname", "first_visit", "IP", "latitude", "longitude", "points",]
 
-admin.site.register(user, user_admin)
+admin.site.register(Player, Player_admin)
